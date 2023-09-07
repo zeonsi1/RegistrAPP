@@ -1,7 +1,14 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-back-button slot="start"></ion-back-button>
-  </ion-toolbar>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+<ion-header> 
+  <div class="header">
+    <div class="ion-text-start">
+      <ion-back-button slot="start"></ion-back-button>
+    </div>
+    <ion-title class="ion-text-center title">Registrr <span class="span">APP</span></ion-title> 
+  </div>
+ 
 </ion-header>
 
 <ion-content>
@@ -16,8 +23,8 @@
     <ion-item>
       <ion-input label="Ingresa nuevamente tu Contraseña" labelPlacement="floating"></ion-input>
     </ion-item>
-    <div class="ion-text-center btn-pad">
-      <input class="btn" type="submit" value="Cambiar contraseña">
-    </div>
   </form>
+  <div class="ion-text-center btn-pad">
+    <input class="btn" type="submit" value="Cambiar contraseña">
+  </div>
 </ion-content>
