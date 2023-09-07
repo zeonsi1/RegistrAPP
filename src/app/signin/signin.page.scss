@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 .header {
     background-color: #0f2b53;
     padding-bottom: 200px;
@@ -21,4 +23,16 @@
 
 .btn:active {
     background-color: #4270d9;
+}
+
+.title {
+    color: #f5bf41;
+    font-size: 22px;
+    font-family: 'Open Sans';
+}
+
+.span {
+    color: white;
+    font-weight: bold;
+    font-size: 28px;
 }
