@@ -1,4 +1,39 @@
 
 <ion-content [fullscreen]="true">
-  <ion-text>{{user}}</ion-text>
+  <ion-header class="header">
+    <ion-title>
+      <ion-text>Bienvenido/a <br>{{user}}</ion-text>
+    </ion-title>  
+  </ion-header>
+  <div class="box"> 
+
+    <ion-grid>
+      <ion-card class="card">
+        <ion-card-header class="ion-text-center"> 
+          <ion-card-title>Horario <ion-icon name="alarm-outline"></ion-icon></ion-card-title> 
+        </ion-card-header>
+        <ion-button class="right" fill="clear">></ion-button>
+      </ion-card>
+
+      <ion-card class="card">
+        <ion-card-header class="ion-text-center"> 
+          <ion-card-title>Asistencia <ion-icon name="calendar-clear-outline"></ion-icon></ion-card-title> 
+        </ion-card-header>
+        <ion-button class="right" fill="clear">></ion-button>
+      </ion-card>
+
+      <ion-card class="card">
+        <ion-card-header class="ion-text-center"> 
+          <ion-card-title>Codigo QR <ion-icon name="qr-code-outline"></ion-icon></ion-card-title> 
+        </ion-card-header>
+        <ion-button class="right" fill="clear">></ion-button>
+      </ion-card>
+
+    </ion-grid>
+  </div>
+  
+  
+  <div class="ion-text-center btn-pad">
+    <a routerLink="/signin">Cerrar Sesión</a>
+  </div>
 </ion-content>
