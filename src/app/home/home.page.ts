@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
-  constructor() {}
-
+  user: string = '';
+  
+  constructor(private router: Router) {
+    const state = this.router.getCurrentNavigation()?.extras.state;
+    if(state && state['user']) {
+      this.user = state['user'];
+    }
+  }
 }

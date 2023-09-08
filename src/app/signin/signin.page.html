@@ -1,16 +1,25 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+  rel="stylesheet"
+/>
 <ion-header>
   <div class="header">
-    <ion-title class="ion-text-center title">Registrr <span class="span">APP</span></ion-title> 
+    <ion-title class="ion-text-center title"
+      >Registrr <span class="span">APP</span></ion-title
+    >
   </div>
 </ion-header>
 
 <ion-content>
-  <form action="" class="form">
+  <div class="form">
     <ion-item>
-      <ion-input label="Usuario" labelPlacement="floating"></ion-input>
+      <ion-input
+        label="Usuario"
+        labelPlacement="floating"
+        [(ngModel)]="username"
+      ></ion-input>
     </ion-item>
     <ion-item>
       <ion-input
@@ -19,10 +28,17 @@
         type="password"
       ></ion-input>
     </ion-item>
-    <div class="ion-text-center btn-pad">
-      <input routerLink="/home" class="btn" type="submit" value="Ingresar">
-    </div>
-  </form>
+  </div>
+  <div class="ion-text-center btn-pad">
+    <input
+      routerLink="/home"
+      class="btn"
+      type="submit"
+      value="Ingresar"
+      (click)="goTo()"
+    />
+  </div>
+
   <div class="ion-text-center btn-pad">
     <a routerLink="/restorepass">Olvidé mi Contraseña</a>
   </div>
