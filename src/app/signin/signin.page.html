@@ -4,31 +4,24 @@
   href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
   rel="stylesheet"
 />
-<ion-header>
-  <div class="header">
-    <ion-title class="ion-text-center title"
-      >Registrr <span class="span">APP</span></ion-title
-    >
-  </div>
-</ion-header>
-
+<div class="header">
+  <h1 class="title ion-text-center">Registrr <span class="span">APP</span></h1>
+</div>
 <ion-content>
-  <div class="form">
-    <ion-item>
-      <ion-input
-        label="Usuario"
-        labelPlacement="floating"
-        [(ngModel)]="username"
-      ></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input
-        label="Contraseña"
-        labelPlacement="floating"
-        type="password"
-      ></ion-input>
-    </ion-item>
-  </div>
+  <ion-item class="ion-padding-top">
+    <ion-input
+      label="Usuario"
+      labelPlacement="floating"
+      [(ngModel)]="username"
+    ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input
+      label="Contraseña"
+      labelPlacement="floating"
+      type="password"
+    ></ion-input>
+  </ion-item>
   <div class="ion-text-center btn-pad">
     <input
       routerLink="/home"

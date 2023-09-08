@@ -8,15 +8,20 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'signin',
+    redirectTo: 'loader',
     pathMatch: 'full'
   },
   {
     path: 'signin',
     loadChildren: () => import('./signin/signin.module').then( m => m.SigninPageModule)
-  },  {
+  },
+  {
     path: 'restorepass',
     loadChildren: () => import('./restorepass/restorepass.module').then( m => m.RestorepassPageModule)
+  },
+  {
+    path: 'loader',
+    loadChildren: () => import('./loader/loader.module').then( m => m.LoaderPageModule)
   },
 
 ];
