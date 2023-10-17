@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { DjangoService } from '../service/django.service';
 
 
 
@@ -11,7 +12,16 @@ import { Router } from '@angular/router';
 export class SigninPage implements OnInit {
   username: string = ''; 
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private djangoApi: DjangoService) {
+    this.djangoApi.getUsuarios().subscribe(
+      (usuarios)=>{
+        console.log(usuarios);
+      }
+      ,
+      (error)=>{
+        console.log(error);
+      }
+    );
   }
 
   ngOnInit() {
