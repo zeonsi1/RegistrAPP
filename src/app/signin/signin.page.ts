@@ -13,6 +13,7 @@ export class SigninPage implements OnInit {
   users: any;
   forma!: FormGroup;
   passw: string ='';
+  mensaje: string = '';
   constructor(private router: Router, private djangoApi: DjangoService, private fb:FormBuilder) {    
     this.djangoApi.getUsuarios().subscribe(
       (usuarios)=>{
@@ -35,17 +36,32 @@ export class SigninPage implements OnInit {
     })
   }
 
+  get usuarioNoValido(){
+    return this.forma.get('usuario')?.invalid && this.forma.get('usuario')?.touched;
+  }
+
+  get contraNoValido(){
+    return this.forma.get('pass')?.invalid && this.forma.get('pass')?.touched;
+  }
+
   ngOnInit() {
   }
   
   goTo(users) {
     for (let index = 0; index < users.length; index++) {     
       if (users[index].nombre_usuario == this.username && users[index].password_usuario == this.passw){
+        let nombre: string ='';
+        nombre = users[index].pnombre_usuario +" "+users[index].apaterno_usuario;
         this.router.navigate(['/home'], {
-          state: {user: users[index].direccion_usuario},
-        })
+          state: {user: nombre},
+        })        
       }
-      
+      else {
+        this.mensaje = 'Contraseña y/o Usuario Invalido';
+        setTimeout(() => {
+          this.mensaje='';
+        }, 5000);
+      }
     }
   }
 }

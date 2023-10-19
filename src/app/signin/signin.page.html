@@ -14,6 +14,7 @@
         label="Usuario"
         labelPlacement="floating"
         formControlName="usuario"
+        [class.is-invalid]="usuarioNoValido"
         [(ngModel)]="username"
       ></ion-input>
     </ion-item>    
@@ -23,11 +24,18 @@
         labelPlacement="floating"
         formControlName="pass"
         type="password"
+        [class.is-invalid]="contraNoValido"
         [(ngModel)]="passw"
       ></ion-input>
     </ion-item>
+    <ion-text color="danger" *ngIf="usuarioNoValido">
+      <p class="mensaje">El usuario debe contener al menos 5 carácteres</p>
+    </ion-text>
+    <ion-text color="danger" *ngIf="contraNoValido">
+      <p class="mensaje">La contraseña es obligatoria</p>
+    </ion-text>
     <ion-text color="danger">
-      <p class="mensaje">ppppp</p>
+      <p class="mensaje">{{mensaje}}</p>
     </ion-text>
     <div class="ion-text-center btn-pad">
       <input
