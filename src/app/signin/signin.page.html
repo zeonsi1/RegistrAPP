@@ -8,29 +8,45 @@
   <h1 class="title ion-text-center">Registrr <span class="span">APP</span></h1>
 </div>
 <ion-content>
-  <ion-item class="ion-padding-top">
-    <ion-input
-      label="Usuario"
-      labelPlacement="floating"
-      [(ngModel)]="username"
-    ></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-input
-      label="Contraseña"
-      labelPlacement="floating"
-      type="password"
-    ></ion-input>
-  </ion-item>
-  <div class="ion-text-center btn-pad">
-    <input
-      routerLink="/home"
-      class="btn"
-      type="submit"
-      value="Ingresar"
-      (click)="goTo()"
-    />
-  </div>
+  <form [formGroup]="forma" (ngSubmit)="goTo">
+    <ion-item class="ion-padding-top">
+      <ion-input
+        label="Usuario"
+        labelPlacement="floating"
+        formControlName="usuario"
+        [(ngModel)]="username"
+      ></ion-input>
+    </ion-item>    
+    <ion-item>
+      <ion-input
+        label="Contraseña"
+        labelPlacement="floating"
+        formControlName="pass"
+        type="password"
+        [(ngModel)]="passw"
+      ></ion-input>
+    </ion-item>
+    <ion-text color="danger">
+      <p class="mensaje">ppppp</p>
+    </ion-text>
+    <div class="ion-text-center btn-pad">
+      <input
+        class="btn"
+        type="submit"
+        value="Ingresar"
+        (click)="goTo(users)"
+      />
+    </div>
+  </form>
+  
+  <pre>Estado formulario:{{forma.valid}}
+    <br>
+    status:{{forma.status}}
+  </pre>
+
+  <pre>
+    {{forma.value | json}}
+  </pre>
 
   <div class="ion-text-center btn-pad">
     <a routerLink="/restorepass">Olvidé mi Contraseña</a>
