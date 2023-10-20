@@ -52,8 +52,11 @@
     <ion-text color="danger" *ngIf="forma.controls['pass2'].errors?.['Match']">
       <p class="mensaje">Las contraseñas no coinciden</p>
     </ion-text>
+    <ion-text color="danger">
+      <p class="mensaje">{{mensaje}}</p>
+    </ion-text>
     <div class="ion-text-center btn-pad">
-      <input [disabled]="forma.invalid" class="btn" type="submit" value="Cambiar contraseña" (click)="enviar">
+      <input  class="btn" type="submit" value="Cambiar contraseña" (click)="enviar(users)">
     </div>
   </form>
 

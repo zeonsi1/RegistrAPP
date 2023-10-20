@@ -72,8 +72,10 @@ export class RestorepassPage implements OnInit {
   
   enviar(users){
     for (let index = 0; index < users.length; index++) {
-      if(users[index].nombre_usuario == this.forma.get('usuario')?.value){
-
+      
+      if(users[index].nombre_usuario === this.forma.get('usuario')?.value){
+        this.mensaje='';
+        return;
       }
       else {
         this.mensaje = 'Usuario Invalido';

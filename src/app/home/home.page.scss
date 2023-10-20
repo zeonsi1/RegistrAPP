@@ -35,23 +35,28 @@
 }
 
 .logoutbtn{
-  margin-left:15%;
-  margin-bottom:5%;
+  margin-bottom: 50px;
+  color: white;
+  text-decoration: none;
 }
 
 ion-text{
   font-size:17px;
 }
 
+.combo {
+  padding-top: 50px;
+}
+
 button {
   transform: scale(1);
   padding: .5rem 2rem;
-  background-color: #012C56;
+  background-color: #ED3A3A;
   border: none;
   border-radius: 4px;
   color: white;
-  font-weight: bold;
-  font-size: 1.5rem;
+  font-weight: 100;
+  font-size: 20px;
   outline: none;
   cursor: pointer;
 }

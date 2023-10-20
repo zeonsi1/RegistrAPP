@@ -49,8 +49,9 @@ export class SigninPage implements OnInit {
   
   goTo(users) {
     for (let index = 0; index < users.length; index++) {     
-      if (users[index].nombre_usuario == this.forma.get('usuario')?.value && users[index].password_usuario == this.forma.get('pass')?.value){
+      if ((users[index].nombre_usuario === this.forma.get('usuario')?.value) && (users[index].password_usuario === this.forma.get('pass')?.value)){
         let nombre: string ='';
+        this.mensaje='';
         nombre = users[index].pnombre_usuario +" "+users[index].apaterno_usuario;
         this.router.navigate(['/home'], {
           state: {user: nombre},
@@ -60,7 +61,7 @@ export class SigninPage implements OnInit {
         this.mensaje = 'Contraseña y/o Usuario Invalido';
         setTimeout(() => {
           this.mensaje='';
-        }, 5000);
+        }, 1000);
       }
     }
   }
