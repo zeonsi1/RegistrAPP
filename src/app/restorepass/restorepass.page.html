@@ -12,24 +12,57 @@
 </div>
 
 <ion-content class="ion-margin-top">
-  <ion-item>
-    <ion-input label="Ingresa tu Usuario" labelPlacement="floating"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-input
-      label="Contraseña"
-      labelPlacement="floating"
-      type="password"
-    ></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-input
-      label="Ingresa nuevamente tu Contraseña"
-      labelPlacement="floating"
-    ></ion-input>
-  </ion-item>
+  <form [formGroup]="forma" (ngSubmit)="enviar">
+    <ion-item>
+      <ion-input 
+        label="Ingresa tu Usuario" 
+        labelPlacement="floating"
+        formControlName="usuario"
+        [class.is-invalid]="usuarioNoValido"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        label="Contraseña"
+        labelPlacement="floating"
+        type="password"
+        formControlName="pass1"
+        [class.is-invalid]="pass1NoValido"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        label="Ingresa nuevamente tu Contraseña"
+        labelPlacement="floating"
+        formControlName="pass2"
+        type="password"
+        [class.is-invalid]="pass2NoValido"
+      ></ion-input>
+    </ion-item>
+    <br>
+    <ion-text color="danger" *ngIf="usuarioNoValido">
+      <p class="mensaje">El usuario debe contener al menos 5 carácteres</p>
+    </ion-text>
+    <ion-text color="danger" *ngIf="pass1NoValido">
+      <p class="mensaje">La contraseña debe contener al menos 4 carácteres</p>
+    </ion-text>
+    <ion-text color="danger" *ngIf="pass2NoValido">
+      <p class="mensaje">La confirmacion de contraseña es obligatoria</p>
+    </ion-text>
+    <ion-text color="danger" *ngIf="forma.controls['pass2'].errors?.['Match']">
+      <p class="mensaje">Las contraseñas no coinciden</p>
+    </ion-text>
+    <div class="ion-text-center btn-pad">
+      <input [disabled]="forma.invalid" class="btn" type="submit" value="Cambiar contraseña" (click)="enviar">
+    </div>
+  </form>
 
-  <div class="ion-text-center btn-pad">
-    <input class="btn" type="submit" value="Cambiar contraseña" />
-  </div>
+  <!-- <pre>Estado formulario:{{forma.valid}}
+    <br>
+    Status:{{forma.status}}
+
+  </pre>
+  <pre>
+    {{forma.value | json}}
+  </pre> -->
 </ion-content>

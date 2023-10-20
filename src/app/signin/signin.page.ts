@@ -49,7 +49,7 @@ export class SigninPage implements OnInit {
   
   goTo(users) {
     for (let index = 0; index < users.length; index++) {     
-      if (users[index].nombre_usuario == this.username && users[index].password_usuario == this.passw){
+      if (users[index].nombre_usuario == this.forma.get('usuario')?.value && users[index].password_usuario == this.forma.get('pass')?.value){
         let nombre: string ='';
         nombre = users[index].pnombre_usuario +" "+users[index].apaterno_usuario;
         this.router.navigate(['/home'], {
