@@ -15,8 +15,8 @@ import { HomePageRoutingModule } from './home-routing.module';
     IonicModule,
     HomePageRoutingModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
   ],
-  declarations: [HomePage]
+  declarations: [HomePage],
 })
 export class HomePageModule {}
