@@ -34,10 +34,38 @@
   width: 120%;
 }
 
-.button{
-  size:10px;
+.logoutbtn{
+  margin-left:15%;
+  margin-bottom:5%;
 }
 
 ion-text{
   font-size:17px;
+}
+
+button {
+  transform: scale(1);
+  padding: .5rem 2rem;
+  background-color: #012C56;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.bounce {
+  animation: bounce .25s ease-in-out;
+}
+
+@keyframes bounce {
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }

@@ -5,6 +5,7 @@
       <ion-text>Bienvenido/a <br>{{user}}</ion-text>
     </ion-title>  
   </ion-header>
+
   <div class="box"> 
 
     <ion-grid>
@@ -12,7 +13,7 @@
         <ion-card-header class="ion-text-center"> 
           <ion-card-title>Horario <mat-icon>schedule</mat-icon></ion-card-title> 
         </ion-card-header>
-        <button mat-flat-button class="right" fill="clear">></button>
+        <button mat-flat-button class="right" fill="clear" >></button>
       </ion-card>
 
       <ion-card class="card">
@@ -30,10 +31,12 @@
       </ion-card>
 
     </ion-grid>
+
   </div>
-  
-  
-  <div class="ion-text-center btn-pad">
-    <a routerLink="/signin">Cerrar Sesión</a>
-  </div>
+
 </ion-content>
+<ion-footer>
+  <div>
+    <button #button class="logoutbtn" (click)="applyBounce()"><a routerLink="/signin">Cerrar Sesión</a></button>
+  </div>
+</ion-footer>
