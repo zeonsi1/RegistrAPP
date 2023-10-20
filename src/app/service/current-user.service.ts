@@ -5,6 +5,8 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class CurrentUserService {
-  isLogged: any;
   constructor() { }
+  isLogged(){
+    return localStorage.getItem('token');
+  }
 }

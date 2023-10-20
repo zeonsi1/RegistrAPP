@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { DjangoService } from '../service/django.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { CurrentUserService } from '../service/current-user.service';
 
 @Component({
   selector: 'app-signin',
@@ -14,7 +15,7 @@ export class SigninPage implements OnInit {
   forma!: FormGroup;
   passw: string ='';
   mensaje: string = '';
-  constructor(private router: Router, private djangoApi: DjangoService, private fb:FormBuilder) {    
+  constructor(private router: Router, private djangoApi: DjangoService, private fb:FormBuilder, private authSvc: CurrentUserService) {    
     this.djangoApi.getUsuarios().subscribe(
       (usuarios)=>{
         console.log(usuarios);
@@ -52,6 +53,7 @@ export class SigninPage implements OnInit {
       if ((users[index].nombre_usuario === this.forma.get('usuario')?.value) && (users[index].password_usuario === this.forma.get('pass')?.value)){
         let nombre: string ='';
         this.mensaje='';
+        this.authSvc.isLogged()
         nombre = users[index].pnombre_usuario +" "+users[index].apaterno_usuario;
         this.router.navigate(['/home'], {
           state: {user: nombre},
