@@ -9,7 +9,11 @@ export class DjangoService {
   constructor(private http: HttpClient) { }
   
   getUsuarios():Observable<any>{
-    return this.http.get(this.apiURL+'/lista_usuarios')
+    return this.http.get(this.apiURL+'/users')
     .pipe(retry(3));
+  }
+
+  postData(data: any):Observable<any>{
+    return this.http.post(this.apiURL+'/users/', data);
   }
 }
