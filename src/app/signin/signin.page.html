@@ -28,7 +28,6 @@
         [(ngModel)]="passw"
       ></ion-input>
     </ion-item>
-    <ion-checkbox class="check" justify="end" checked="{{checkBo}}" (ionChange)="check($event)">Recuerdame</ion-checkbox>
     <ion-text color="danger" *ngIf="usuarioNoValido">
       <p class="mensaje">El usuario debe contener al menos 5 carácteres</p>
     </ion-text>
@@ -38,11 +37,13 @@
     <ion-text color="danger">
       <p class="mensaje">{{mensaje}}</p>
     </ion-text>
+    <ion-checkbox class="check" justify="end" checked="{{checkBo}}" (ionChange)="check($event)">Recuerdame</ion-checkbox>
     <div class="ion-text-center btn-pad">
       <input
         class="btn"
         type="submit"
         value="Ingresar"
+        [disabled]="(forma.status) === 'INVALID'"
         (click)="goTo()"
       />
     </div>

@@ -11,18 +11,9 @@ export class RestorepassPage implements OnInit {
   forma!:FormGroup;
   users: any;
   mensaje: string = '';
+  mensajeA: string = '';
   constructor(private fb:FormBuilder, private django: DjangoService) { 
     this.crearFormulario()
-    this.django.getUsuarios().subscribe(
-      (usuarios)=>{
-        console.log(usuarios);
-        this.users = usuarios;
-      }
-      ,
-      (error)=>{
-        console.log(error);
-      }
-    )
   }
 
   ngOnInit() {
@@ -70,19 +61,29 @@ export class RestorepassPage implements OnInit {
   }
 
   
-  enviar(users){
-    for (let index = 0; index < users.length; index++) {
-      
-      if(users[index].nombre_usuario === this.forma.get('usuario')?.value){
-        this.mensaje='';
-        return;
-      }
-      else {
-        this.mensaje = 'Usuario Invalido';
+  enviar(){
+    console.log(this.forma.value)
+    this.django.putPass(this.forma.value).subscribe(
+      (response)=>{
+        this.mensajeA = response.mensaje;
         setTimeout(() => {
-          this.mensaje='';
-        }, 5000);
+          this.mensajeA = '';
+        },2500);
+      },
+      (error)=>{
+        if(error.status == 404){
+          this.mensaje = 'Usuario Invalido';
+          setTimeout(() =>{
+            this.mensaje='';
+          },5000);
+        }
+        else if(error.status === 500){
+          this.mensaje = 'Error interno del servidor';
+          setTimeout(() => {
+            this.mensaje = '';
+          },5000);
+        }
       }
-    }
+    );
   }
 }

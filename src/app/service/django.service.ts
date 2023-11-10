@@ -6,14 +6,13 @@ import { Observable, retry } from 'rxjs';
 })
 export class DjangoService {
   apiURL = 'http://127.0.0.1:8000/api';
-  constructor(private http: HttpClient) { }
-  
-  getUsuarios():Observable<any>{
-    return this.http.get(this.apiURL+'/users')
-    .pipe(retry(3));
-  }
+  constructor(private http: HttpClient) {}
 
   postData(data: any):Observable<any>{
     return this.http.post(this.apiURL+'/users/', data);
+  }
+
+  putPass(data: any):Observable<any>{
+    return this.http.put(this.apiURL+'/users/', data);
   }
 }

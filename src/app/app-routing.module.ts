@@ -28,8 +28,14 @@ const routes: Routes = [
     loadChildren: () => import('./loader/loader.module').then( m => m.LoaderPageModule)
   },
   {
+    path: 'profesor',
+    loadChildren: () => import('./profesor/profesor.module').then( m => m.ProfesorPageModule),
+    canLoad: [AuthGuard]
+  },
+  {
     path: '**', component:  NotFoundComponent
   },
+
 ];
 
 @NgModule({

@@ -20,7 +20,13 @@
     padding: 10px 100px;
 }
 
-.btn:active {
+.btn[disabled] {
+    /* Estilos para el botón deshabilitado */
+    background-color: #e0e0e0; /* Color de fondo cuando está deshabilitado */
+    color: #a0a0a0; /* Color de texto cuando está deshabilitado */
+}
+
+.btn:active:valid {
     background-color: #4270d9;
 }
 

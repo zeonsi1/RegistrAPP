@@ -14,8 +14,8 @@ export class HomePage {
 
   constructor(private router: Router, private renderer: Renderer2, private authService: AuthService) {
     const state = this.router.getCurrentNavigation()?.extras.state;
-    if(state && state['user']) {
-      this.user = state['user'];
+    if(state && state['nombre']) {
+      this.user = state['nombre'];
     }
   }
   applyBounce() {
