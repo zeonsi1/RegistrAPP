@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { RestorepassPageRoutingModule } from './restorepass-routing.module';
 
 import { RestorepassPage } from './restorepass.page';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   imports: [
@@ -14,7 +16,9 @@ import { RestorepassPage } from './restorepass.page';
     FormsModule,
     IonicModule,
     RestorepassPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatIconModule
   ],
   declarations: [RestorepassPage]
 })

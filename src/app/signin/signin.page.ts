@@ -20,7 +20,6 @@ export class SigninPage implements OnInit {
 
   constructor(private router: Router, private djangoApi: DjangoService, private fb:FormBuilder, private authService: AuthService) {
     this.crearFormulario()
-    console.log(this.forma.status)
   }
 
   crearFormulario(){

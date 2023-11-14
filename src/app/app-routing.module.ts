@@ -30,7 +30,7 @@ const routes: Routes = [
   {
     path: 'profesor',
     loadChildren: () => import('./profesor/profesor.module').then( m => m.ProfesorPageModule),
-    canLoad: [AuthGuard]
+    // canLoad: [AuthGuard]
   },
   {
     path: '**', component:  NotFoundComponent

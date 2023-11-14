@@ -16,7 +16,7 @@ export class RestorepassPage implements OnInit {
     this.crearFormulario()
   }
 
-  ngOnInit() {
+  ngOnInit(){
   }
 
   get usuarioNoValido(){
@@ -62,7 +62,6 @@ export class RestorepassPage implements OnInit {
 
   
   enviar(){
-    console.log(this.forma.value)
     this.django.putPass(this.forma.value).subscribe(
       (response)=>{
         this.mensajeA = response.mensaje;
