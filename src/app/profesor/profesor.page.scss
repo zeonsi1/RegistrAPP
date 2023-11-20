@@ -1,8 +1,76 @@
-.header {
+.ion-item-background{
+    background-color: #012C56;
+}
+
+.btn-pad {
+    position: absolute;
+    bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom:10%;
+    width: 100%;
+}
+
+.header{
     padding-top: 50px;
 }
 
-.title {
+.btn{
+    margin-top:20px;
+}
+
+.box {
+    position: fixed;
+    top: 50%;
+    left: 39%;
+    transform: translate(-50%, -50%);
+}
+
+.right {
+    float:right;
+}
+
+.card{
+    width: 120%;
+}
+
+.logoutbtn{
+    margin-bottom: 50px;
+    color: white;
+    text-decoration: none;
+}
+
+ion-text{
+    font-size:20px;
+}
+
+.combo {
     padding-top: 20px;
+}
+
+button {
+    transform: scale(1);
+    padding: .5rem 2rem;
+    background-color: #ED3A3A;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-weight: 100;
     font-size: 20px;
+    outline: none;
+    cursor: pointer;
+}
+
+.bounce {
+    animation: bounce .25s ease-in-out;
+}
+
+@keyframes bounce {
+50% {
+    transform: scale(1.05);
+}
+
+100% {
+    transform: scale(1);
+}
 }

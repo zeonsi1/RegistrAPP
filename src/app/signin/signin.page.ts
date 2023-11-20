@@ -41,7 +41,6 @@ export class SigninPage implements OnInit {
   }
   
   goTo() {
-    this.authService.login();
     this.djangoApi.postData(this.forma.value).subscribe(
       (response)=>{
         if(response.tipo_usuario == 2){
