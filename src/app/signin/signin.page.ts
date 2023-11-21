@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { DjangoService } from '../service/django.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from './auth.service';
-
+import { Storage } from '@ionic/storage-angular'
 
 @Component({
   selector: 'app-signin',
@@ -12,20 +12,20 @@ import { AuthService } from './auth.service';
 })
 export class SigninPage implements OnInit {
   checkBo: boolean = false;
-  username: string = ''; 
   users: any;
   forma!: FormGroup;
-  passw: string ='';
   mensaje: string = '';
+  usuario: string = '';
+  password: string = '';
 
-  constructor(private router: Router, private djangoApi: DjangoService, private fb:FormBuilder, private authService: AuthService) {
+  constructor(private router: Router, private djangoApi: DjangoService, private fb:FormBuilder, private authService: AuthService, private storage: Storage) {
     this.crearFormulario()
   }
 
   crearFormulario(){
     this.forma = this.fb.group({
       usuario:['', [Validators.required, Validators.minLength(5)]],
-      pass:['', [Validators.required]]  
+      pass:['', [Validators.required]]  ,
     })
   }
 
@@ -37,10 +37,35 @@ export class SigninPage implements OnInit {
     return this.forma.get('pass')?.invalid && this.forma.get('pass')?.touched;
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+  
+    await this.storage.create();
+
+    this.storage.get('usuario').then((val) => {
+    this.usuario=val;
+    });
+
+    this.storage.get('password').then((val) => {
+      this.password=val;
+      });
+      this.storage.get("checkBox").then((val) => {
+      this.checkBo=val;
+      });
   }
   
+  check(){
+    this.storage.set("checkBox", this.checkBo)
+  }
+
   goTo() {
+    if (this.checkBo){
+      this.storage.set("usuario", this.forma.get("usuario")?.value);
+      this.storage.set("password", this.forma.get("pass")?.value);
+    } else{
+      this.storage.remove("usuario");
+      this.storage.remove("password");
+      console.log("hola")
+    }
     this.djangoApi.postData(this.forma.value).subscribe(
       (response)=>{
         if(response.tipo_usuario == 2){
@@ -57,6 +82,7 @@ export class SigninPage implements OnInit {
             state: {nombre:nombre}
           });
         }
+        
         this.mensaje = '';
       },
       (error)=>{
@@ -93,9 +119,13 @@ export class SigninPage implements OnInit {
     // }
   }
 
-  check(e){
-    if (e.currentTarget.checked){
-      
-    }
-  }
+  
+
+  
+
+  //
+  //    
+  //    this.storage.get("contraseña")
+
+  //    console.log(this.forma.get("usuario")?.value)
 }

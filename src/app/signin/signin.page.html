@@ -15,7 +15,7 @@
         labelPlacement="floating"
         formControlName="usuario"
         [class.is-invalid]="usuarioNoValido"
-        [(ngModel)]="username"
+        [(ngModel)]="usuario"
       ></ion-input>
     </ion-item>    
     <ion-item>
@@ -25,7 +25,7 @@
         formControlName="pass"
         type="password"
         [class.is-invalid]="contraNoValido"
-        [(ngModel)]="passw"
+        [(ngModel)]="password"
       ></ion-input>
     </ion-item>
     <ion-text color="danger" *ngIf="usuarioNoValido">
@@ -37,7 +37,7 @@
     <ion-text color="danger">
       <p class="mensaje">{{mensaje}}</p>
     </ion-text>
-    <ion-checkbox class="check" justify="end" checked="{{checkBo}}" (ionChange)="check($event)">Recuerdame</ion-checkbox>
+    <ion-checkbox class="check" justify="end" [ngModelOptions]="{standalone: true}" [(ngModel)]="checkBo" (ionChange)="check()" >Recuerdame</ion-checkbox>
     <div class="ion-text-center btn-pad">
       <input
         class="btn"
