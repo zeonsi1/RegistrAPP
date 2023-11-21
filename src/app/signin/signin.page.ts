@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { DjangoService } from '../service/django.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from './auth.service';
-import { Storage } from '@ionic/storage-angular'
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-signin',
@@ -64,22 +64,23 @@ export class SigninPage implements OnInit {
     } else{
       this.storage.remove("usuario");
       this.storage.remove("password");
-      console.log("hola")
     }
     this.djangoApi.postData(this.forma.value).subscribe(
       (response)=>{
         if(response.tipo_usuario == 2){
           this.authService.login();
+          let id: number = response.id_usuario;
           let nombre: string = response.pnombre_usuario + ' ' + response.apaterno_usuario;
           this.router.navigate(['/home'], {
-            state: {nombre: nombre}
+            state: {nombre: nombre, id: id},
           });
         }
         else if(response.tipo_usuario == 1){
           this.authService.login();
           let nombre: string = response.pnombre_usuario + ' ' + response.apaterno_usuario;
+          let id:number = response.id_profesor;
           this.router.navigate(['/profesor'], {
-            state: {nombre:nombre}
+            state: {nombre:nombre, id: id}
           });
         }
         
