@@ -10,6 +10,7 @@ import { AuthService } from '../signin/auth.service';
 export class HomePage {
   user: string = '';
   id: number = 0;
+  
   @ViewChild('button') button: ElementRef;
 
   constructor(private router: Router, private renderer: Renderer2, private authService: AuthService) {
@@ -26,4 +27,5 @@ export class HomePage {
       this.renderer.removeClass(this.button.nativeElement, 'bounce');
     }, 200);
   }
+
 }

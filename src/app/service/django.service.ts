@@ -19,4 +19,8 @@ export class DjangoService {
   postAsis(data: any):Observable<any>{
     return this.http.post(this.apiURL+ '/asistencia/',data);
   }
+
+  putAsis(data:any):Observable<any>{
+    return this.http.put(this.apiURL+ '/asistencia/', data);
+  }
 }

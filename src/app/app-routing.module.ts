@@ -38,8 +38,18 @@ const routes: Routes = [
     canLoad: [AuthGuard]
   },
   {
+    path: 'qr',
+    loadChildren: () => import('./qr/qr.module').then( m => m.QrPageModule),
+    canLoad: [AuthGuard]
+  },
+  {
+    path: 'scanner',
+    loadChildren: () => import('./scanner/scanner.module').then( m => m.ScannerPageModule)
+  },
+  {
     path: '**', component:  NotFoundComponent
   },
+
 ];
 
 @NgModule({

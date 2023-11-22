@@ -10,18 +10,21 @@
       <ion-title size="large">clases</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Card Title</ion-card-title>
-      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-    </ion-card-header>
-  
-    <ion-card-content>
-      Here's a small text description for the card content. Nothing more, nothing less.
-    </ion-card-content>
-  
-    <ion-button fill="clear" class="ion-justify-content-center">Action 1</ion-button>
-  </ion-card>
+  <div *ngFor="let r of ramo">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{r.nombre_asignatura}}</ion-card-title>
+        <ion-card-subtitle>{{r.id_clase}}</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        {{r.pnombre_usuario}} {{r.apaterno_usuario}} <br>    
+        Total de Clases: {{r.total_clase}}
+      </ion-card-content>
+
+      <ion-button fill="clear" class="ion-justify-content-center" (click)="goTo(r)">Generar QR</ion-button>
+    </ion-card>
+  </div>
 </ion-content>
 
 
