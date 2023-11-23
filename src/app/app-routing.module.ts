@@ -43,8 +43,8 @@ const routes: Routes = [
     canLoad: [AuthGuard]
   },
   {
-    path: 'scanner',
-    loadChildren: () => import('./scanner/scanner.module').then( m => m.ScannerPageModule)
+    path: 'scannerqr',
+    loadChildren: () => import('./scannerqr/scannerqr.module').then( m => m.ScannerqrPageModule)
   },
   {
     path: '**', component:  NotFoundComponent

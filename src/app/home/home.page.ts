@@ -1,7 +1,7 @@
 import { Component, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../signin/auth.service';
-
+import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -28,4 +28,9 @@ export class HomePage {
     }, 200);
   }
 
+  goTo(){
+    this.router.navigate(['/scannerqr'], {
+      state: {id: this.id}
+    });
+  }
 }
