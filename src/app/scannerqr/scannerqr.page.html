@@ -1,3 +1,13 @@
+<ion-toolbar>
+  <ion-button filL="clear" style="float:left;" routerLink="/home">
+    <ion-icon class="black-icon" name="home-outline"></ion-icon>
+  </ion-button>
+  <ion-header>
+    <ion-title class="ion-text-center" style="padding-bottom: 20px;">
+      Código QR
+    </ion-title>
+  </ion-header>
+</ion-toolbar>
 <ion-content
   [fullscreen]="true"
   [style.--background]="scanActivate?'#00000000':'#ffffff'"
@@ -5,14 +15,23 @@
   <ion-row class="scan-button" [hidden]="!scanActivate">
     <ion-col class="ion-no-padding">
       <ion-button
+        class="scanner-button"
         expand="full"
         (click)="startScanner()"
         [hidden]="scanActivate"
-      >
-        SCAN
+        color="warning"
+      > Escanear QR <ion-icon name="qr-code-outline" style="margin-left:10px"></ion-icon>
       </ion-button>
-      <ion-button expand="full" (click)="stopScanner()">Stop</ion-button>
-    </ion-col>
+    </ion-col>  
+  </ion-row>
+  <ion-row>
+    <div class="footer-text">
+      <ion-text>
+        - Porfavor apunte su cámara hacia el Código QR que desplegara su profesor
+        <br>
+        - Escanee el Código QR, ya que de lo contrario no quedara registrado en la asistencia
+      </ion-text>
+    </div>
   </ion-row>
   <div class="scan-box" [hidden]="!scanActivate"></div>
 </ion-content>

@@ -5,11 +5,11 @@ describe('ProfesorPage', () => {
   let component: ProfesorPage;
   let fixture: ComponentFixture<ProfesorPage>;
 
-  beforeEach(async(() => {
+  beforeEach(async() => {
     fixture = TestBed.createComponent(ProfesorPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  }));
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();

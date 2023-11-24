@@ -5,11 +5,11 @@ describe('ScannerqrPage', () => {
   let component: ScannerqrPage;
   let fixture: ComponentFixture<ScannerqrPage>;
 
-  beforeEach(async(() => {
+  beforeEach(async() => {
     fixture = TestBed.createComponent(ScannerqrPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  }));
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();

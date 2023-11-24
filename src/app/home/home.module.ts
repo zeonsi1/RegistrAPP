@@ -7,7 +7,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { HomePageRoutingModule } from './home-routing.module';
 
-
 @NgModule({
   imports: [
     CommonModule,
@@ -15,7 +14,7 @@ import { HomePageRoutingModule } from './home-routing.module';
     IonicModule,
     HomePageRoutingModule,
     MatIconModule,
-    MatButtonModule,
+    MatButtonModule
   ],
   declarations: [HomePage],
 })

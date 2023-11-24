@@ -1,7 +1,7 @@
 import { Component, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../signin/auth.service';
-import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -10,7 +10,7 @@ import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
 export class HomePage {
   user: string = '';
   id: number = 0;
-  
+
   @ViewChild('button') button: ElementRef;
 
   constructor(private router: Router, private renderer: Renderer2, private authService: AuthService) {

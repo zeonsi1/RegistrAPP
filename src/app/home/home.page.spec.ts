@@ -1,7 +1,11 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, inject } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
+import { HttpBackend, HttpClient } from '@angular/common/http';
+import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { HomePage } from './home.page';
+
+import { DjangoService } from '../service/django.service';
 
 describe('HomePage', () => {
   let component: HomePage;
@@ -22,3 +26,28 @@ describe('HomePage', () => {
     expect(component).toBeTruthy();
   });
 });
+
+// describe('HomePage', () => {
+//   let httpClient: HttpClient;
+//   let httpTestingController: HttpTestingController;
+//   let djangoService: DjangoService;
+
+//   beforeEach(() => {
+//     TestBed.configureTestingModule({
+//       imports: [HttpClientTestingModule],
+//       providers: [DjangoService],
+//     });
+
+//     httpClient = TestBed.get(HttpClient);
+//     httpTestingController = TestBed.get(HttpTestingController);
+//     djangoService = new DjangoService(httpClient);
+//   });
+  
+//   it('exists', inject([DjangoService], (service: DjangoService) => {
+//     expect(service).toBeTruthy();
+//   }))
+
+//   describe('location', () => {
+//     it('gets the ')
+//   })
+// })
