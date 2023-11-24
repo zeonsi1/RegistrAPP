@@ -1,5 +1,19 @@
-.ion-item-background{
-    background-color: #012C56;
+.header {
+    background-color: #0f2b53;
+    padding-bottom: 50px;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    font-weight: 100;
+    color: #f5bf41;
+    font-size: 20px;
+}
+
+span {
+    color: white;
+    font-weight: 600;
 }
 
 .btn-pad {
@@ -26,12 +40,56 @@
     transform: translate(-50%, -50%);
 }
 
-.right {
-    float:right;
+.qr {
+    font-size: 30px;
+    color: black;
 }
 
-.card{
-    width: 120%;
+.ion-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.mat-icon {
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.calendar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-size: 25px;
+}
+
+.title-card {
+    font-weight: 100;
+}
+
+.btn-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-weight: bold;
+    color: white;
+    background-color: #f5bf41;
+}
+
+.btn-font {
+    color: white;
+    background-color: #f5bf41;
+    font-size: 18px;
+    padding: 10px 200px;
+    font-weight: 700;
+}
+
+.btn-card:active,
+.btn-font:active{
+    background-color: #4270d9;
 }
 
 .logoutbtn{
@@ -47,13 +105,12 @@ ion-text{
 .combo {
     padding-top: 20px;
 }
-
-button {
+  
+.button {
     transform: scale(1);
     padding: .5rem 2rem;
-    background-color: #ED3A3A;
+    background-color: #f5bf41;
     border: none;
-    border-radius: 4px;
     color: white;
     font-weight: 100;
     font-size: 20px;
@@ -61,10 +118,14 @@ button {
     cursor: pointer;
 }
 
+.button:active:valid {
+    background-color: #4270d9;
+}
+
 .bounce {
     animation: bounce .25s ease-in-out;
 }
-
+  
 @keyframes bounce {
 50% {
     transform: scale(1.05);
@@ -73,4 +134,8 @@ button {
 100% {
     transform: scale(1);
 }
+}
+  
+.icon-display{
+transform: scale(0.75);
 }

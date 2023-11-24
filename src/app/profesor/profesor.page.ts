@@ -16,8 +16,10 @@ export class ProfesorPage implements OnInit {
     const state = this.router.getCurrentNavigation()?.extras.state;
     if(state && state['nombre']){
       this.user = state['nombre'];
-      this.id = state['id'];
     };
+    if(state && state['id']){
+      this.id = state['id'];
+    }
   }
 
   ngOnInit() {

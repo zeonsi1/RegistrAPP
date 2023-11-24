@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { QrPageRoutingModule } from './qr-routing.module';
 
 import { QrPage } from './qr.page';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   imports: [
@@ -15,6 +17,8 @@ import { QrPage } from './qr.page';
     IonicModule,
     QrPageRoutingModule,
     QRCodeModule,
+    MatButtonModule,
+    MatIconModule
   ],
   declarations: [QrPage]
 })

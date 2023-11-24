@@ -1,22 +1,32 @@
 <ion-content [fullscreen]="true">
-  <div class="box">
-    <ion-grid>
-      <ion-card class="card">
-        <ion-card-header class="ion-text-center"> 
-          <ion-card-title>Clases <mat-icon>schedule</mat-icon></ion-card-title> 
-        </ion-card-header>
-        <button (click)="enviar()" mat-flat-button class="right" fill="clear" >></button>
-      </ion-card>
+  <ion-header class="header">
+    <ion-title class="ion-text-center title">
+      <ion-text>Bienvenido/a<br><span>{{user}}</span></ion-text>
+    </ion-title>  
+  </ion-header>
+ 
+  <ion-grid class="ion-margin-top">
+    <ion-row>
+      <ion-col>
+        <ion-card class="card">
+          <ion-card-header class="ion-text-center ion-card-header-centered">
+            <mat-icon class="calendar">calendar_today</mat-icon>
+            <ion-card-title class="title-card">Clases</ion-card-title>
+          </ion-card-header>
+          <div class="btn-card">
+            <button class="btn-font" (click)="enviar()">X</button>
+          </div>
+        </ion-card>          
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-    </ion-grid>
-
-  </div>
 
 </ion-content>
-<ion-footer>
+<footer>
   <div class="ion-text-center combo">
-    <button #button class="logoutbtn" (click)="applyBounce()"><a class="logoutbtn" routerLink="/signin">Cerrar Sesión</a></button>
+    <button #button class="logoutbtn button" (click)="applyBounce()"><a class="logoutbtn" routerLink="/signin">Cerrar Sesión</a></button>
   </div>
-</ion-footer>
+</footer>
 
 

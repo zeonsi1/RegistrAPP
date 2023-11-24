@@ -7,13 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { ClasesPageRoutingModule } from './clases-routing.module';
 
 import { ClasesPage } from './clases.page';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ClasesPageRoutingModule
+    ClasesPageRoutingModule,
+    MatButtonModule,
+    MatIconModule
   ],
   declarations: [ClasesPage]
 })

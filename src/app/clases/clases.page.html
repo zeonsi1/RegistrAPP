@@ -1,15 +1,15 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>clases</ion-title>
-  </ion-toolbar>
+<ion-header>
+  <div class="head back-button">
+    <button mat-icon-button aria-label="Example icon button with a home icon" routerLink="/profesor">
+      <mat-icon class="white-icon">home</mat-icon>
+    </button>
+  </div>
+  <div class="header">
+    <h1 class="ion-text-center title">Clases</h1>
+  </div>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">clases</ion-title>
-    </ion-toolbar>
-  </ion-header>
   <div *ngFor="let r of ramo">
     <ion-card>
       <ion-card-header>

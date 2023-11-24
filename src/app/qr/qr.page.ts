@@ -24,4 +24,9 @@ export class QrPage implements OnInit {
     }
   }
 
+  enviar(){
+    this.router.navigate(['/clases'],{
+      state: {id: this.id}
+    });
+  }
 }

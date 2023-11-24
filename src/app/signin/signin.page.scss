@@ -18,12 +18,13 @@
     background-color: #f5bf41;
     border: none;
     padding: 10px 100px;
+    font-size: 20px;
+    font-weight: 100;
 }
 
 .btn[disabled] {
-    /* Estilos para el botón deshabilitado */
-    background-color: #e0e0e0; /* Color de fondo cuando está deshabilitado */
-    color: #a0a0a0; /* Color de texto cuando está deshabilitado */
+    background-color: #e0e0e0; 
+    color: #a0a0a0; 
 }
 
 .btn:active:valid {
