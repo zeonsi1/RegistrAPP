@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>asistencia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">asistencia</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div *ngFor="let r of ramo">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{r.nombre_asignatura}}</ion-card-title>
+        <ion-card-subtitle>{{r.id_clase}}</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        {{r.pnombre_usuario}} {{r.apaterno_usuario}} <br>    
+        Total de Clases: {{r.total_clase}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clases Asistidas: {{r.clase_asistida}} <br>
+        Porcentaje de Asistencia Actual: {{ ((r.clase_asistida / r.total_clase) * 100).toFixed(1) }}%
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

@@ -10,7 +10,7 @@ import { DjangoService } from '../service/django.service';
 export class ScannerqrPage implements OnInit {
   scanActivate: boolean = false;
   id: number = 0;
-
+  mensaje: string = "";
   constructor(private router: Router, private djangoApi: DjangoService) {
     const state = this.router.getCurrentNavigation()?.extras.state;
     if(state && state['id']){
@@ -35,7 +35,7 @@ export class ScannerqrPage implements OnInit {
 
   async startScanner() {
     const allowed = await this.checkPermission();
-
+    
     if (allowed) {
       this.scanActivate = true;
       BarcodeScanner.hideBackground();
@@ -46,19 +46,32 @@ export class ScannerqrPage implements OnInit {
         this.scanActivate = false;
         const classId = this.extractClassId(result.content);
         const fecha = new Date().toLocaleDateString();
+        const time = new Date();
+        const hours = time.getHours();
+        const minutes = time.getMinutes();
+        const seconds = time.getSeconds();
+        const formattedTime = `${hours}:${minutes}:${seconds}`;
         if (classId !== null) {
           let data = {
             id: classId,
             idAlumno: this.id,
             asis: 1,
             fecha: fecha,
+            hora: formattedTime,
           };
           this.djangoApi.putAsisA(data).subscribe(
             (response) => {
               alert(response.mensaje);
             },
             (error)=>{          
-              alert(error.mensaje)
+              if(error.status === 400){
+                this.mensaje = 'El usuario no es de esta seccion';
+                alert(this.mensaje);
+              }
+              else if(error.status === 500){
+                this.mensaje = 'Error interno del servidor';
+                alert(this.mensaje);
+              } 
             }
           );
         } else {

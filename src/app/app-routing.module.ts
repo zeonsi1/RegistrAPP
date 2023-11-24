@@ -44,7 +44,13 @@ const routes: Routes = [
   },
   {
     path: 'scannerqr',
-    loadChildren: () => import('./scannerqr/scannerqr.module').then( m => m.ScannerqrPageModule)
+    loadChildren: () => import('./scannerqr/scannerqr.module').then( m => m.ScannerqrPageModule),
+    canLoad: [AuthGuard]
+  },
+  {
+    path: 'asistencia',
+    loadChildren: () => import('./asistencia/asistencia.module').then( m => m.AsistenciaPageModule),
+    canLoad: [AuthGuard]
   },
   {
     path: '**', component:  NotFoundComponent

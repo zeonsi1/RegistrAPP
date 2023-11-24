@@ -9,18 +9,12 @@
   <div class="box"> 
 
     <ion-grid>
-      <ion-card class="card">
-        <ion-card-header class="ion-text-center"> 
-          <ion-card-title>Horario <mat-icon>schedule</mat-icon></ion-card-title> 
-        </ion-card-header>
-        <button mat-flat-button class="right" fill="clear" >></button>
-      </ion-card>
 
       <ion-card class="card">
         <ion-card-header class="ion-text-center"> 
           <ion-card-title>Asistencia <mat-icon>calendar_today</mat-icon></ion-card-title> 
         </ion-card-header>
-        <button mat-flat-button class="right" fill="clear">></button>
+        <button (click)="asis()" mat-flat-button class="right" fill="clear">></button>
       </ion-card>
 
       <ion-card class="card">

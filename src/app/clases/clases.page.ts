@@ -21,10 +21,9 @@ export class ClasesPage implements OnInit {
     };
     this.djangoApi.postAsis(obj).subscribe(
       (response)=>{
-        console.log(response);
         this.ramo = response;
       }
-    )
+    );
   }
 
   ngOnInit() {
@@ -41,7 +40,6 @@ export class ClasesPage implements OnInit {
 
     this.djangoApi.putAsis(obj).subscribe(
       (response)=>{
-        console.log(response)
       }
     );
 

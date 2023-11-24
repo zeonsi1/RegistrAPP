@@ -38,7 +38,6 @@ export class SigninPage implements OnInit {
   }
 
   async ngOnInit() {
-  
     await this.storage.create();
 
     this.storage.get('usuario').then((val) => {

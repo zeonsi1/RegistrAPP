@@ -33,4 +33,10 @@ export class HomePage {
       state: {id: this.id}
     });
   }
+
+  asis(){
+    this.router.navigate(['/asistencia'],{
+      state: {id: this.id}
+    });
+  }
 }
