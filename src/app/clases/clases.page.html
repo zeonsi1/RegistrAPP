@@ -11,13 +11,18 @@
 
 <ion-content [fullscreen]="true">
   <div *ngFor="let r of ramo">
-    <ion-card>
+    <div class="btn">
+      <button class="btn-A" (click)="toggleCard(r)">
+        {{r.nombre_asignatura}}
+      </button>
+    </div>  
+    <ion-card *ngIf="r.expanded">
       <ion-card-header>
         <ion-card-title>{{r.nombre_asignatura}}</ion-card-title>
         <ion-card-subtitle>{{r.id_clase}}</ion-card-subtitle>
       </ion-card-header>
     
-      <ion-card-content>
+      <ion-card-content *ngIf="r.expanded">
         {{r.pnombre_usuario}} {{r.apaterno_usuario}} <br>    
         Total de Clases: {{r.total_clase}}
       </ion-card-content>

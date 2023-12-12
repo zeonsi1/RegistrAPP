@@ -23,3 +23,24 @@
     padding-top: 50px;
     font-weight: 100;
 }
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0px;
+    background-color: white;
+}
+
+.btn-A {
+    width: 300px;
+    padding: 15px 15px;
+    font-size: 18px;
+    font-weight: 200;
+    background-color: #f5bf41;
+    color: black;
+}
+
+ion-button {
+    --color: black;
+}

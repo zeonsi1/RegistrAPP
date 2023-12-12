@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DjangoService } from '../service/django.service';
 
+
 @Component({
   selector: 'app-clases',
   templateUrl: './clases.page.html',
@@ -10,6 +11,8 @@ import { DjangoService } from '../service/django.service';
 export class ClasesPage implements OnInit {
   id: number = 0;
   ramo: any;
+  panelOpenState = false;
+  currentCard: any;
 
   constructor(private router: Router, private djangoApi: DjangoService) {
     const state = this.router.getCurrentNavigation()?.extras.state;
@@ -29,6 +32,16 @@ export class ClasesPage implements OnInit {
   ngOnInit() {
   }
 
+  toggleCard(item) {
+    // Cambia el estado de expansión del elemento
+    item.expanded = !item.expanded;
+
+    // Cierra los demás elementos si están abiertos
+    if (this.currentCard === item) {
+      this.currentCard = null;
+    }
+}
+
   goTo(r: any){
     const fecha = new Date().toLocaleDateString();
     
@@ -40,6 +53,7 @@ export class ClasesPage implements OnInit {
 
     this.djangoApi.putAsis(obj).subscribe(
       (response)=>{
+        console.log('fecha actualizada');
       }
     );
 
