@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DjangoService } from '../service/django.service';
+
 
 
 @Component({
@@ -40,7 +41,7 @@ export class ClasesPage implements OnInit {
     if (this.currentCard === item) {
       this.currentCard = null;
     }
-}
+  }
 
   goTo(r: any){
     const fecha = new Date().toLocaleDateString();
