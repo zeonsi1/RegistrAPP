@@ -5,7 +5,7 @@ import { Observable, retry } from 'rxjs';
   providedIn: 'root'
 })
 export class DjangoService {
-  apiURL = 'https://cxltlxxp-8000.brs.devtunnels.ms/api';
+  apiURL = 'http://127.0.0.1:8000//api';
   constructor(private http: HttpClient) {}
 
   postData(data: any):Observable<any>{

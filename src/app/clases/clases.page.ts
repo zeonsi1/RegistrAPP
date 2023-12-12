@@ -11,7 +11,7 @@ import { DjangoService } from '../service/django.service';
 })
 export class ClasesPage implements OnInit {
   id: number = 0;
-  ramo: any;
+  ramo: any[] = [];
   panelOpenState = false;
   currentCard: any;
 
@@ -25,6 +25,7 @@ export class ClasesPage implements OnInit {
     };
     this.djangoApi.postAsis(obj).subscribe(
       (response)=>{
+        console.log(response)
         this.ramo = response;
       }
     );

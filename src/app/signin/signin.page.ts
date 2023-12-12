@@ -86,6 +86,7 @@ export class SigninPage implements OnInit {
         this.mensaje = '';
       },
       (error)=>{
+        console.error('Error durante el inicio de sesión:', error);
         if(error.status === 400){
           this.mensaje = 'Credenciales inválidas';
           setTimeout(() => {

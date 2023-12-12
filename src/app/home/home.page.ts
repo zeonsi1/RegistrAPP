@@ -13,7 +13,7 @@ export class HomePage {
 
   @ViewChild('button') button: ElementRef;
 
-  constructor(private router: Router, private renderer: Renderer2, private authService: AuthService) {
+  constructor(public router: Router, public renderer: Renderer2, private authService: AuthService) {
     const state = this.router.getCurrentNavigation()?.extras.state;
     if(state && state['nombre']) {
       this.user = state['nombre'];
